@@ -1,3 +1,5 @@
+"use strict";
+
 /*
 Will send log data to a remote server for analytics
 The 'log' variable is a data structure
@@ -31,17 +33,17 @@ This will provide all the Strings to use when using logger.
 Every js module that has functionality must be listed here.
 The jerarqui of this object is by "n-folders/file". Example: utils/db-helper
 */
-exports.logDynamicStrings = ({
-    utils = {
-        db_helper = {
+exports.logDynamicStrings: (
+    utils: (
+        db_helper: (
             connectionOpen = (enviroment, connectionString) => {
     
             },
             connectionError = (enviroment, connectionString) => {
                 
             }
-        }
-    },
+        )
+    ),
 
     models = {
         abilities = {
@@ -60,4 +62,4 @@ exports.logDynamicStrings = ({
 
         }
     }
-});
+);

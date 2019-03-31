@@ -1,23 +1,26 @@
-var championModel = require();
+"use strict";
+
+var championModel = require("../../models/champion");
 
 exports.getChampion = (req, res) => {
 
-    var championModelResult = championModel.getChampion(req.params.id);
+    var championModelResult = championModel.getChampion(req.params.championId);
 
-    var champion = ({
+    var champion = {
         name: championModelResult.name,
         title: championModelResult.title,
         description: championModelResult.description,
         abilities: championModelResult.abilities,
         skins: championModelResult.skins,
         commets: championModelResult.commets
-    });
+    };
 }
 
 exports.getChampions = (req, res) => {
 
-    var champions = ({
+    var champions = {
 
-    })
+    }
+
     res.status(200).send(champions);
 }
