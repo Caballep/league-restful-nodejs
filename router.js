@@ -1,8 +1,6 @@
 "use strict";
 
-const exampleController = require("../league-nodejs-service/controllers/example-controller");
-const exampleController = require("../league-nodejs-service/controllers/");
-
+const exampleController = require("./controllers/example-controller");
 const routes = ({
     rExample: "/example"
 });
