@@ -10,6 +10,4 @@ exports.getSomething = (req, res) => {
     });
     
     res.status(200).send(person);
-}
-
-module.exports = ejemplo;
+};
