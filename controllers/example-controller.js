@@ -1,8 +1,9 @@
+"use strict";
 var faker = require('faker');
 
 exports.getSomething = (req, res) => {
     
-    var person = ({
+    const person = ({
         prefix: faker.name.prefix(),
         name: faker.name.firstName(),
         lastName: faker.name.lastName(),
