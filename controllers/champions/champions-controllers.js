@@ -1,6 +1,6 @@
 "use strict";
 
-var championModel = require("../../models/champion");
+var championModel = require("../../models/data-access/champion-dal");
 
 exports.getChampion = (req, res) => {
 

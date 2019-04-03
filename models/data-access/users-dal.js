@@ -31,6 +31,6 @@ exports.getUserSummary = () => {
 Will retrieve a detailed object with all the user data.
 UI target: User Panel
 */
-exports.getUserDetails = (req, res) => {
+exports.getUserDetails = (userId) => {
 
 }
