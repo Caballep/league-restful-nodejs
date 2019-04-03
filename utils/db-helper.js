@@ -10,7 +10,7 @@ exports.dbConnection = () => {
     const databaseEnviroment = constants.database.connectionEnviroments.dev;
 
     //Next block will select the right connection string based on the previously selected enviroment
-    var connectionString;
+    const connectionString;
     switch(enviroment) {
         case constants.database.connectionEnviroments.dev: {
             connectionString = constants.connectionStrings.dev;
@@ -27,11 +27,11 @@ exports.dbConnection = () => {
 }
 
 //Establishing connection for the development enviroment
-let mongoDB = process.env.MONGODB_URI || connectionString;
+const mongoDB = process.env.MONGODB_URI || connectionString;
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 
-let dbConnection = mongoose.connection;
+const dbConnection = mongoose.connection;
 
 //dbConnection.on("open", analyticsLogger.logDynamicStrings.utils.);
 //dbConnection.on("error", analyticsLogger.logDynamicStrings.utils.);
