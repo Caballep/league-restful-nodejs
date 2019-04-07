@@ -10,7 +10,7 @@ exports.dbConnection = () => {
     const databaseEnviroment = constants.database.connectionEnviroments.dev;
 
     //Next block will select the right connection string based on the previously selected enviroment
-    const connectionString;
+    var connectionString;
     switch(enviroment) {
         case constants.database.connectionEnviroments.dev: {
             connectionString = constants.connectionStrings.dev;
@@ -27,13 +27,16 @@ exports.dbConnection = () => {
 }
 
 //Establishing connection for the development enviroment
-const mongoDB = process.env.MONGODB_URI || connectionString;
-mongoose.connect(mongoDB);
+let mongoDB = process.env.MONGODB_URI || connectionString;
+
+//TODO: Replace console logs for analytics logs
+mongoose.connect('mongodb://localhost/mongo-games')
+    .then(() => console.log(constants.stringsBuilder_en.mongooseConnectionSucceeded(databaseEnviroment)))
+    .catch(err => console.error(constants.stringsBuilder_en.moongoseConnectionFailed(databaseEnviroment), err));
+
+//No idea what is this for:
 mongoose.Promise = global.Promise;
 
-const dbConnection = mongoose.connection;
-
-//dbConnection.on("open", analyticsLogger.logDynamicStrings.utils.);
-//dbConnection.on("error", analyticsLogger.logDynamicStrings.utils.);
+let dbConnection = mongoose.connection;
 
 exports.dbConnection;

@@ -11,53 +11,19 @@ function sendLog(log) {
 /*
 Logs locally and sends the data remotely for analytics
 */
-// TODO: change below object to a functional way.
-const logger = (log) => ({
-    log,
-    info() {
+exports.logger = (log) => ({
+    info = () => {
         console.info();
-        sendLog(this.log);
+        sendLog(log);
     },
 
-    debug() {
+    debug = () => {
         console.debug();
-        sendLog(this.log);
+        sendLog(log);
     },
 
-    error() {
+    error = () => {
         console.error();
-        sendLog(this.log);
+        sendLog(log);
     }
 });
-
-/*
-This will provide all the Strings to use when using logger.
-Every js module that has functionality must be listed here.
-The hierarchy of this object is by "n-folders/file". Example: utils/db-helper
-*/
-const logDynamicStrings = {
-    utils: {
-        dbHelper: {
-            connectionUpen(environment, connectionString) {
-                console.log('connection opened.');
-            },
-            connectionError(environment, connectionString) {
-                console.log('connection error.');
-            } 
-        }
-    },
-    models: {
-        abilities: {},
-        champion: {},
-        user: {}
-    },
-
-    controllers: {
-        champions_controllers: {}
-    }
-};
-
-exports.analyticsLogger = {
-    logger,
-    logDynamicStrings
-};
