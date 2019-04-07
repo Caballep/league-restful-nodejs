@@ -1,9 +1,9 @@
 "use strict";
 
-var express = require("express");
-var bodyParser = require("body-parser");
-var appRouter = require("./router");
-var app = express();
+const express = require("express");
+const bodyParser = require("body-parser");
+const appRouter = require("./router");
+const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

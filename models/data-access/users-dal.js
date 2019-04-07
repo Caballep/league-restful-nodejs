@@ -1,3 +1,4 @@
+"use strict";
 /*
 Will create a new document into the User schema
 */
