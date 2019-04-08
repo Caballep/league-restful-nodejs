@@ -2,7 +2,7 @@
 
 const mongoose = require("");
 const constants = require("../utils/constants");
-const analyticsLogger = require("../utils/analytics-logger");
+const analyticsLogger = require("../lib/analytics-logger");
 
 exports.dbConnection = () => {
 
