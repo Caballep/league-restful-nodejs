@@ -1,12 +1,12 @@
 "use strict";
 
-const championModel = require("../../models/champion");
+var championModel = require("../../models/data-access/champion-dal");
 
 exports.getChampion = (req, res) => {
 
-    const championModelResult = championModel.getChampion(req.params.championId);
+    var championModelResult = championModel.getChampion(req.params.championId);
 
-    const champion = {
+    var champion = {
         name: championModelResult.name,
         title: championModelResult.title,
         description: championModelResult.description,
@@ -18,7 +18,7 @@ exports.getChampion = (req, res) => {
 
 exports.getChampions = (req, res) => {
 
-    const champions = {
+    var champions = {
 
     }
 
