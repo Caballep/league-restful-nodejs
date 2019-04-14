@@ -1,0 +1,3 @@
+Mocka - Testing
+Travis CI - Continous Integration
+Codecov - Code Coverage

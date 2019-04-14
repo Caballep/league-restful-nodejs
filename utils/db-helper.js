@@ -1,27 +1,27 @@
-"use strict";
+'use strict';
 
-const mongoose = require("");
-const constants = require("../utils/constants");
-const analyticsLogger = require("../lib/analytics-logger");
+const mongoose = require('mongoose');
+const constants = require('../utils/constants');
+const analyticsLogger = require('../lib/analytics-logger');
 
 exports.dbConnection = () => {
 
     //Remember to switch the following line to the desired enviroment before running
-    const databaseEnviroment = constants.database.connectionEnviroments.dev;
+    const databaseEnviroment = constants.applicationEnviroment.dev;
 
     //Next block will select the right connection string based on the previously selected enviroment
     var connectionString;
     switch(enviroment) {
-        case constants.database.connectionEnviroments.dev: {
-            connectionString = constants.connectionStrings.dev;
+        case constants.applicationEnviroment.dev: {
+            connectionString = constants.dbConnectionString.dev;
         }
 
-        case constants.database.connectionEnviroments.test: {
-            connectionString = constants.connectionStrings.test;
+        case constants.applicationEnviroment.test: {
+            connectionString = constants.dbConnectionString.test;
         }
 
-        case constants.database.connectionEnviroments.prod: {
-            connectionString = constants.connectionStrings.prod;
+        case constants.applicationEnviroment.prod: {
+            connectionString = constants.dbConnectionString.prod;
         }
     }
 }
@@ -30,9 +30,13 @@ exports.dbConnection = () => {
 let mongoDB = process.env.MONGODB_URI || connectionString;
 
 //TODO: Replace console logs for analytics logs
-mongoose.connect('mongodb://localhost/mongo-games')
-    .then(() => console.log(constants.stringsBuilder_en.mongooseConnectionSucceeded(databaseEnviroment)))
-    .catch(err => console.error(constants.stringsBuilder_en.moongoseConnectionFailed(databaseEnviroment), err));
+mongoose.connect(constants.database.connectionString.dev)
+    .then(() => 
+        analyticsLogger.logger.info(constants.dbStringResultBuilder.mongooseConnectionSucceeded(databaseEnviroment))
+    )
+    .catch(err => 
+        analyticsLogger.logger.error(constants.dbStringResultBuilder.moongoseConnectionFailed(databaseEnviroment))
+    );
 
 //No idea what is this for:
 mongoose.Promise = global.Promise;
