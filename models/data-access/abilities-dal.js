@@ -19,21 +19,6 @@ exports.getChampionAbilities = (championId) => {
     }).where('champion._id').equals(championId);
 }
 
-
-exports.getChampionAbilities = (championId) => {
-    
-    abilitySchema.findById(championId)
-    .then((championAbilities) => {
-        if(championAbilities){
-            return championAbilities;
-        }else {
-
-        }
-    }).catch((err) => {
-        
-    });
-}
-
 /*
 Will retrieve the details of a champion's ability
 UI target: Ability details screen

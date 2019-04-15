@@ -10,7 +10,7 @@ exports.dbConnection = () => {
     const databaseEnviroment = constants.applicationEnviroment.dev;
 
     //Next block will select the right connection string based on the previously selected enviroment
-    var connectionString;
+    const connectionString;
     switch(enviroment) {
         case constants.applicationEnviroment.dev: {
             connectionString = constants.dbConnectionString.dev;
@@ -41,6 +41,4 @@ mongoose.connect(constants.database.connectionString.dev)
 //No idea what is this for:
 mongoose.Promise = global.Promise;
 
-let dbConnection = mongoose.connection;
-
-exports.dbConnection;
+module.exports = mongoose.connection;

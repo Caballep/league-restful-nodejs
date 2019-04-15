@@ -1,14 +1,5 @@
 "use strict";
-const thisFile = "champions-dal.js";
 const championSchema = require("../schemas/champion");
-const constants = require("../../utils/constants");
-const messageBuilder = require("../../utils/message-builder");
-const analyticsLogger = require("../../lib/analytics-logger");
-
-/*
-For analytics logger
-*/
-const thisFile = "champion-dal.js";
 
 /*
 Will retrieve all the champions

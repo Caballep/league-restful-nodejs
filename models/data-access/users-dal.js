@@ -1,7 +1,5 @@
 'use strict';
 const userSchema = require('../schemas/user');
-const constants = require('../utils/constants');
-const analyticsLogger = require('../lib/analytics-logger');
 
 /*
 Will create a new document into the User schema

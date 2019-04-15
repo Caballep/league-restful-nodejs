@@ -10,6 +10,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 appRouter(app);
 
-var server = app.listen(3000, function () {
+const server = app.listen(3000, function () {
     console.log('App running on localhost:' + server.address().port);
 });
