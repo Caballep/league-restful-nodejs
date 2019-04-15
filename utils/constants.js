@@ -1,28 +1,30 @@
 'use strict';
 
-exports.database = ({
-    connectionStrings: ({
-        dev: "",
-        test: "",
-        prod: ""
-    }),
-    
-    connectionEnviroments: ({
-        dev: "dev",
-        test: "test",
-        prod: "prod"
-    })
+/*
+In which layer of the app the error is beeing triggered
+*/
+exports.errorLocation = ({
+    schemas: 'schemas',
+    data_access: 'data-access',
+    controllers: 'controllers',
+    utils: 'utils'
 });
 
 /*
-This application will only manage english strings, it is not an user interactive app. All 
-the strings are just for logs.
+The application eviroments
 */
-exports.stringsBuilder_en = ({
-    mongooseConnectionSucceeded = (params) => {
-        return "Connected to " + params.server;
-    },
-    moongoseConnectionFailed = (params) => {
-        return "There was a problem trying to connect to " + params.server;
-    }
+exports.applicationEnviroment = ({
+    dev: 'dev',
+    test: 'test',
+    prod: 'prod'
+});
+
+/*
+This is specifically used in the utils/db-helper.js file
+Contains and describe String constants related to database
+*/
+exports.dbConnectionString = ({
+    dev: 'mongodb://localhost:27017/league',
+    test: '',
+    prod: ''
 });

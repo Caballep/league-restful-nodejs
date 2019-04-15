@@ -1,5 +1,5 @@
 "use strict";
-var faker = require('faker');
+const faker = require('faker');
 
 exports.getSomething = (req, res) => {
     

@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const userSchema = mongoose.model("user", new mongoose.Schema({
+const userSchema = mongoose.model('user', new mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     userName: String,
     userFirstName: String,
@@ -11,5 +11,7 @@ const userSchema = mongoose.model("user", new mongoose.Schema({
     password: String,
     avatar_url: String,
     about: String,
-    userFavoriteChampions: [{type: Schema.Types.ObjectId, ref: "userFavoriteChampions"}]
+    userFavoriteChampions: [{type: Schema.Types.ObjectId, ref: 'userFavoriteChampions'}]
 }));
+
+module.exports.userSchema;

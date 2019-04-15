@@ -1,9 +1,11 @@
-"use strict";
+'use strict';
+const userSchema = require('../schemas/user');
+
 /*
 Will create a new document into the User schema
 */
 exports.createUser = (newUser) => {
-
+    
 }
 
 /*
